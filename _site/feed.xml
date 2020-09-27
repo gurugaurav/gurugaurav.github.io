@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-27T18:02:27+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guru Prasad Singh</title><subtitle>Guru prasad Singh presonal blog for Machine Learning and Deep Leraning
+</subtitle><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><entry><title type="html">test-ml-page</title><link href="http://localhost:4000/2020/09/27/test-ml-page.html" rel="alternate" type="text/html" title="test-ml-page" /><published>2020-09-27T00:00:00+05:30</published><updated>2020-09-27T00:00:00+05:30</updated><id>http://localhost:4000/2020/09/27/test-ml-page</id><content type="html" xml:base="http://localhost:4000/2020/09/27/test-ml-page.html">&lt;p&gt;A simple linear regression model can be used to build a relation between an explanatory variable and one target variable.  it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of the line.&lt;/p&gt;
+
+&lt;p&gt;Lets consider you want to predict the price of a pizza. So while predicting the price the variable that comes into your mind is the size of pizza. For now don’t consider other features like thickness of pizza and the type of pizza etc.  Lets build a relation between size of pizza and the price of pizza using this dummy data.&lt;/p&gt;
+
+&lt;p&gt;Diameter	Price
+6	5.0
+8	10.0
+10	13.0
+14	17.5
+18	18.0
+Lets visualize the data using using matplot.&lt;/p&gt;
+
+&lt;p&gt;import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()&lt;/p&gt;
+
+&lt;p&gt;plt.figure()
+plt.title(‘Pizza price plotted against diameter’)
+plt.xlabel(‘Diameter in inches’)
+plt.ylabel(‘Price in dollars’)
+plt.plot(X, y, ‘k.’)
+plt.axis([0, 25, 0, 25])
+plt.grid(True)
+plt.show()&lt;/p&gt;
+
+&lt;p&gt;We can see from the graph of the training data that there is a positive relationship
+between the diameter of a pizza and its price, which should be corroborated by our
+own pizza-eating experience. As the diameter of a pizza increases, its price generally
+increases too. The following pizza-price predictor program models this relationship
+using linear regression&lt;/p&gt;
+
+&lt;p&gt;from sklearn.linear_model import LinearRegression&lt;/p&gt;
+
+&lt;h1 id=&quot;create-and-fit-the-model&quot;&gt;Create and fit the model&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;copy_X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fit_intercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+
+&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'prediction:\n{}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;prediction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4.05818966&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21.97413793&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Pizza price plotted against diameter'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Diameter in inches'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Price in dollars'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The fit method of LinearRegression learns the parameters of the following model
+for simple linear regression:
+                                                        y = a + bx&lt;/p&gt;
+
+&lt;p&gt;Ordinary Least Square
+From the above equation we can see that to calulate the linear regression we need to calculate the value of two variable a and b.&lt;/p&gt;
+
+&lt;p&gt;This can be solve by calculating the variance and co-variance of the x and y.&lt;/p&gt;
+
+&lt;p&gt;a and b can be calculated using :&lt;/p&gt;
+
+&lt;p&gt;cov(x,y) / var(x,y)&lt;/p&gt;
+
+&lt;p&gt;Using above data:&lt;/p&gt;
+
+&lt;p&gt;xbar = (6 + 8 + 10 + 14 + 18) / 5
+variance = ((6 - xbar)&lt;strong&gt;2 + (8 - xbar)&lt;/strong&gt;2 + (10 - xbar)&lt;strong&gt;2 + (14 -xbar)&lt;/strong&gt;2 + (18 - xbar)**2) / 4
+print(variance)&lt;/p&gt;
+
+&lt;p&gt;23.2
+import numpy as np
+np.var([6, 8, 10, 14, 18], ddof=1)&lt;/p&gt;
+
+&lt;p&gt;xbar = (6 + 8 + 10 + 14 + 18) / 5
+ybar = (7 + 9 + 13 + 17.5 + 18) / 5
+cov = ((6 - xbar) * (7 - ybar) + (8 - xbar) * (9 - ybar) + (10 -xbar) * (13 - ybar) +
+       (14 - xbar) * (17.5 - ybar) + (18 - xbar) * (18 - ybar)) /4
+print(cov)&lt;/p&gt;
+
+&lt;p&gt;22.65
+beta = 22.65 /23.2
+print(beta)&lt;/p&gt;
+
+&lt;p&gt;0.9762931034482758
+alpha = ybar - beta*xbar
+print(alpha)&lt;/p&gt;
+
+&lt;p&gt;1.9655172413793114&lt;/p&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><category term="ml" /><summary type="html">A simple linear regression model can be used to build a relation between an explanatory variable and one target variable. it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of the line.</summary></entry><entry><title type="html">Welcome To Jekyll</title><link href="http://localhost:4000/2016/05/20/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome To Jekyll" /><published>2016-05-20T00:00:00+05:30</published><updated>2016-05-20T00:00:00+05:30</updated><id>http://localhost:4000/2016/05/20/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2016/05/20/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">My Example Post</title><link href="http://localhost:4000/2016/05/20/my-example-post.html" rel="alternate" type="text/html" title="My Example Post" /><published>2016-05-20T00:00:00+05:30</published><updated>2016-05-20T00:00:00+05:30</updated><id>http://localhost:4000/2016/05/20/my-example-post</id><content type="html" xml:base="http://localhost:4000/2016/05/20/my-example-post.html">&lt;p&gt;Eos eu docendi tractatos sapientem, brute option menandri in vix, quando vivendo accommodare te ius. Nec melius fastidii constituam id, viderer theophrastus ad sit, hinc semper periculis cum id. Noluisse postulant assentior est in, no choro sadipscing repudiandae vix. Vis in euismod delenit dignissim. Ex quod nostrum sit, suas decore animal id ius, nobis solet detracto quo te.&lt;/p&gt;
+
+&lt;p&gt;No laudem altera adolescens has, volumus lucilius eum no. Eam ei nulla audiam efficiantur. Suas affert per no, ei tale nibh sea. Sea ne magna harum, in denique scriptorem sea, cetero alienum tibique ei eos. Labores persequeris referrentur eos ei.&lt;/p&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><category term="dl" /><summary type="html">Eos eu docendi tractatos sapientem, brute option menandri in vix, quando vivendo accommodare te ius. Nec melius fastidii constituam id, viderer theophrastus ad sit, hinc semper periculis cum id. Noluisse postulant assentior est in, no choro sadipscing repudiandae vix. Vis in euismod delenit dignissim. Ex quod nostrum sit, suas decore animal id ius, nobis solet detracto quo te.</summary></entry><entry><title type="html">Some articles are just so long they deserve a really long title to see if things will break well</title><link href="http://localhost:4000/misc/2016/05/20/super-long-article.html" rel="alternate" type="text/html" title="Some articles are just so long they deserve a really long title to see if things will break well" /><published>2016-05-20T00:00:00+05:30</published><updated>2016-05-20T00:00:00+05:30</updated><id>http://localhost:4000/misc/2016/05/20/super-long-article</id><content type="html" xml:base="http://localhost:4000/misc/2016/05/20/super-long-article.html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><category term="misc" /><category term="xyz" /><category term="ml" /><summary type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</summary></entry><entry><title type="html">This post demonstrates post content styles</title><link href="http://localhost:4000/junk/2016/05/20/this-post-demonstrates-post-content-styles.html" rel="alternate" type="text/html" title="This post demonstrates post content styles" /><published>2016-05-20T00:00:00+05:30</published><updated>2016-05-20T00:00:00+05:30</updated><id>http://localhost:4000/junk/2016/05/20/this-post-demonstrates-post-content-styles</id><content type="html" xml:base="http://localhost:4000/junk/2016/05/20/this-post-demonstrates-post-content-styles.html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-great-heading-h2&quot;&gt;Some great heading (h2)&lt;/h2&gt;
+
+&lt;p&gt;Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu.&lt;/p&gt;
+
+&lt;p&gt;Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
+
+&lt;h2 id=&quot;another-great-heading-h2&quot;&gt;Another great heading (h2)&lt;/h2&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.&lt;/p&gt;
+
+&lt;h3 id=&quot;some-great-subheading-h3&quot;&gt;Some great subheading (h3)&lt;/h3&gt;
+
+&lt;p&gt;Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum.&lt;/p&gt;
+
+&lt;p&gt;Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.&lt;/p&gt;
+
+&lt;h3 id=&quot;some-great-subheading-h3-1&quot;&gt;Some great subheading (h3)&lt;/h3&gt;
+
+&lt;p&gt;Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This quote will &lt;em&gt;change&lt;/em&gt; your life. It will reveal the &lt;i&gt;secrets&lt;/i&gt; of the universe, and all the wonders of humanity. Don’t &lt;em&gt;misuse&lt;/em&gt; it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt.&lt;/p&gt;
+
+&lt;h3 id=&quot;some-great-subheading-h3-2&quot;&gt;Some great subheading (h3)&lt;/h3&gt;
+
+&lt;p&gt;Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Hello, World!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
+
+&lt;h4 id=&quot;you-might-want-a-sub-subheading-h4&quot;&gt;You might want a sub-subheading (h4)&lt;/h4&gt;
+
+&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
+
+&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
+
+&lt;h4 id=&quot;but-its-probably-overkill-h4&quot;&gt;But it’s probably overkill (h4)&lt;/h4&gt;
+
+&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
+
+&lt;h5 id=&quot;could-be-a-smaller-sub-heading-pacman-h5&quot;&gt;Could be a smaller sub-heading, &lt;code class=&quot;highlighter-rouge&quot;&gt;pacman&lt;/code&gt; (h5)&lt;/h5&gt;
+
+&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
+
+&lt;h6 id=&quot;small-yet-significant-sub-heading--h6&quot;&gt;Small yet significant sub-heading  (h6)&lt;/h6&gt;
+
+&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
+
+&lt;h3 id=&quot;oh-hai-an-unordered-list&quot;&gt;Oh hai, an unordered list!!&lt;/h3&gt;
+
+&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First item, yo&lt;/li&gt;
+  &lt;li&gt;Second item, dawg&lt;/li&gt;
+  &lt;li&gt;Third item, what what?!&lt;/li&gt;
+  &lt;li&gt;Fourth item, fo sheezy my neezy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;oh-hai-an-ordered-list&quot;&gt;Oh hai, an ordered list!!&lt;/h3&gt;
+
+&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;First item, yo&lt;/li&gt;
+  &lt;li&gt;Second item, dawg&lt;/li&gt;
+  &lt;li&gt;Third item, what what?!&lt;/li&gt;
+  &lt;li&gt;Fourth item, fo sheezy my neezy&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;headings-are-cool-h2&quot;&gt;Headings are cool! (h2)&lt;/h2&gt;
+
+&lt;p&gt;Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
+
+&lt;p&gt;Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
+
+&lt;p&gt;Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.&lt;/p&gt;
+
+&lt;h3 id=&quot;tables&quot;&gt;Tables&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Title 1&lt;/th&gt;
+      &lt;th&gt;Title 2&lt;/th&gt;
+      &lt;th&gt;Title 3&lt;/th&gt;
+      &lt;th&gt;Title 4&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lorem&lt;/td&gt;
+      &lt;td&gt;lorem ipsum&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Title 1&lt;/th&gt;
+      &lt;th&gt;Title 2&lt;/th&gt;
+      &lt;th&gt;Title 3&lt;/th&gt;
+      &lt;th&gt;Title 4&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lorem&lt;/td&gt;
+      &lt;td&gt;lorem ipsum&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lorem ipsum dolor sit amet&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit amet consectetur&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit amet&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lorem ipsum dolor&lt;/td&gt;
+      &lt;td&gt;lorem ipsum&lt;/td&gt;
+      &lt;td&gt;lorem&lt;/td&gt;
+      &lt;td&gt;lorem ipsum&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lorem ipsum dolor&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit amet&lt;/td&gt;
+      &lt;td&gt;lorem ipsum dolor sit amet consectetur&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>[&quot;Bart Simpson&quot;, &quot;Nelson Mandela Muntz&quot;]</name></author><category term="junk" /><summary type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.</summary></entry><entry><title type="html">Super Short Article</title><link href="http://localhost:4000/2016/05/19/super-short-article.html" rel="alternate" type="text/html" title="Super Short Article" /><published>2016-05-19T00:00:00+05:30</published><updated>2016-05-19T00:00:00+05:30</updated><id>http://localhost:4000/2016/05/19/super-short-article</id><content type="html" xml:base="http://localhost:4000/2016/05/19/super-short-article.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--- layout: post title: &quot;Some articles are just so short that we have to make the footer stick&quot; tags: ml xyz ---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A simple linear regression model can be used to build a relation between an explanatory variable and one target variable. it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of…”&amp;gt;&lt;meta name=&quot;generator&quot; content=&quot;Publii Open-Source CMS for Static Site&quot; /&gt;&lt;link rel=&quot;canonical&quot; href=&quot;https://gurugaurav.github.io/basic-of-linear-regression.html&quot; /&gt;&lt;link rel=&quot;alternate&quot; type=&quot;application/atom+xml&quot; href=&quot;https://gurugaurav.github.io/feed.xml&quot; /&gt;&lt;link rel=&quot;alternate&quot; type=&quot;application/json&quot; href=&quot;https://gurugaurav.github.io/feed.json&quot; /&gt;&lt;meta property=&quot;og:title&quot; content=&quot;Basic of Linear regression&quot; /&gt;&lt;meta property=&quot;og:site_name&quot; content=&quot;Guru Prasad Singh&quot; /&gt;&lt;meta property=&quot;og:description&quot; content=&quot;A simple linear regression model can be used to build a relation between an explanatory variable and one target variable. it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of&amp;hellip;&quot; /&gt;&lt;meta property=&quot;og:url&quot; content=&quot;https://gurugaurav.github.io/basic-of-linear-regression.html&quot; /&gt;&lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;&lt;style&gt;:root{--body-font:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,Oxygen,Ubuntu,Cantarell,&quot;Fira Sans&quot;,&quot;Droid Sans&quot;,&quot;Helvetica Neue&quot;,Arial,sans-serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;;--heading-font:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,Oxygen,Ubuntu,Cantarell,&quot;Fira Sans&quot;,&quot;Droid Sans&quot;,&quot;Helvetica Neue&quot;,Arial,sans-serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;;--logo-font:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,Oxygen,Ubuntu,Cantarell,&quot;Fira Sans&quot;,&quot;Droid Sans&quot;,&quot;Helvetica Neue&quot;,Arial,sans-serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;;--menu-font:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,Oxygen,Ubuntu,Cantarell,&quot;Fira Sans&quot;,&quot;Droid Sans&quot;,&quot;Helvetica Neue&quot;,Arial,sans-serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;}&lt;/style&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://gurugaurav.github.io/assets/css/style.css?v=f649c45e53d1fe0450f686bddcde27e4&quot; /&gt;&lt;script type=&quot;application/ld+json&quot;&gt;{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;Article&quot;,&quot;mainEntityOfPage&quot;:{&quot;@type&quot;:&quot;WebPage&quot;,&quot;@id&quot;:&quot;https://gurugaurav.github.io/basic-of-linear-regression.html&quot;},&quot;headline&quot;:&quot;Basic of Linear regression&quot;,&quot;datePublished&quot;:&quot;2020-09-25T22:38&quot;,&quot;dateModified&quot;:&quot;2020-09-25T23:33&quot;,&quot;description&quot;:&quot;A simple linear regression model can be used to build a relation between an explanatory variable and one target variable. it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of&amp;hellip;&quot;,&quot;author&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Guru Prasad Singh&quot;},&quot;publisher&quot;:{&quot;@type&quot;:&quot;Organization&quot;,&quot;name&quot;:&quot;Guru Prasad Singh&quot;}}&lt;/script&gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div class=&quot;site-container&quot;&amp;gt;&amp;lt;header class=&quot;top&quot; id=&quot;js-header&quot;&amp;gt;&lt;a class=&quot;logo&quot; href=&quot;https://gurugaurav.github.io/&quot;&gt;Guru Prasad Singh&lt;/a&gt;&amp;lt;nav class=&quot;navbar js-navbar&quot;&amp;gt;&lt;button class=&quot;navbar__toggle js-toggle&quot; aria-label=&quot;Menu&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;navbar__toggle-box&quot;&gt;&lt;span class=&quot;navbar__toggle-inner&quot;&gt;Menu&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&amp;lt;ul class=&quot;navbar__menu&quot;&amp;gt;&amp;lt;li&amp;gt;&lt;a href=&quot;https://gurugaurav.github.io/&quot; title=&quot;Home&quot; target=&quot;_self&quot;&gt;Home&lt;/a&gt;&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&lt;a href=&quot;https://gurugaurav.github.io/contact&quot; target=&quot;_self&quot;&gt;Contact&lt;/a&gt;&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;lt;/nav&amp;gt;&amp;lt;/header&amp;gt;&amp;lt;main&amp;gt;&amp;lt;article class=&quot;post&quot;&amp;gt;&amp;lt;div class=&quot;hero&quot;&amp;gt;&lt;figure class=&quot;hero__image hero__image--overlay&quot;&gt;&lt;img src=&quot;https://gurugaurav.github.io/media/website/shutterstock_668209624-1.jpg&quot; srcset=&quot;https://gurugaurav.github.io/media/website/responsive/shutterstock_668209624-1-xs.jpg 300w, https://gurugaurav.github.io/media/website/responsive/shutterstock_668209624-1-sm.jpg 480w, https://gurugaurav.github.io/media/website/responsive/shutterstock_668209624-1-md.jpg 768w, https://gurugaurav.github.io/media/website/responsive/shutterstock_668209624-1-lg.jpg 1024w, https://gurugaurav.github.io/media/website/responsive/shutterstock_668209624-1-xl.jpg 1360w, https://gurugaurav.github.io/media/website/responsive/shutterstock_668209624-1-2xl.jpg 1600w&quot; sizes=&quot;(max-width: 1600px) 100vw, 1600px&quot; loading=&quot;eager&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;&amp;lt;header class=&quot;hero__content&quot;&amp;gt;&amp;lt;div class=&quot;wrapper&quot;&amp;gt;&amp;lt;div class=&quot;post__meta&quot;&amp;gt;&lt;time datetime=&quot;2020-09-25T22:38&quot;&gt;September 25, 2020&lt;/time&gt;&amp;lt;/div&amp;gt;&amp;lt;h1&amp;gt;Basic of Linear regression&amp;lt;/h1&amp;gt;&amp;lt;div class=&quot;post__meta post__meta--author&quot;&amp;gt;&lt;img src=&quot;https://www.gravatar.com/avatar/e3b511226c458f1fc1ab1d5107c966d6?s&amp;#x3D;240&quot; loading=&quot;eager&quot; alt=&quot;Guru Prasad Singh&quot; class=&quot;post__author-thumb&quot; /&gt; &lt;a href=&quot;https://gurugaurav.github.io/authors/guru-prasad/&quot; class=&quot;feed__author invert&quot;&gt;Guru Prasad Singh&lt;/a&gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/header&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;wrapper post__entry&quot;&amp;gt;&amp;lt;p&amp;gt;A simple linear regression model can be used to build a relation between an explanatory variable and one target variable.  it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of the line.&amp;lt;/p&amp;gt;&amp;lt;p class=&quot;align-left&quot;&amp;gt;Lets consider you want to predict the price of a pizza. So while predicting the price the variable that comes into your mind is the size of pizza. For now don’t consider other features like thickness of pizza and the type of pizza etc.  Lets build a relation between size of pizza and the price of pizza using this dummy data.&amp;lt;/p&amp;gt;&amp;lt;table class=&quot;dataframe align-center&quot; style=&quot;color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal); height: 276px; width: 211px;&quot; border=&quot;1&quot; width=&quot;321&quot;&amp;gt;&amp;lt;thead&amp;gt;&amp;lt;tr style=&quot;height: 47px;&quot;&amp;gt;&amp;lt;th style=&quot;width: 122.5px; height: 47px;&quot;&amp;gt;Diameter&amp;lt;/th&amp;gt;&amp;lt;td style=&quot;width: 87.5px; height: 47px;&quot;&amp;gt;Price&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/thead&amp;gt;&amp;lt;tbody&amp;gt;&amp;lt;tr style=&quot;height: 47px;&quot;&amp;gt;&amp;lt;td style=&quot;width: 122.5px; height: 47px;&quot;&amp;gt;6&amp;lt;/td&amp;gt;&amp;lt;td style=&quot;width: 87.5px; height: 47px;&quot;&amp;gt;5.0&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;tr style=&quot;height: 47px;&quot;&amp;gt;&amp;lt;td style=&quot;width: 122.5px; height: 47px;&quot;&amp;gt;8&amp;lt;/td&amp;gt;&amp;lt;td style=&quot;width: 87.5px; height: 47px;&quot;&amp;gt;10.0&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;tr style=&quot;height: 47px;&quot;&amp;gt;&amp;lt;td style=&quot;width: 122.5px; height: 47px;&quot;&amp;gt;10&amp;lt;/td&amp;gt;&amp;lt;td style=&quot;width: 87.5px; height: 47px;&quot;&amp;gt;13.0&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;tr style=&quot;height: 47px;&quot;&amp;gt;&amp;lt;td style=&quot;width: 122.5px; height: 47px;&quot;&amp;gt;14&amp;lt;/td&amp;gt;&amp;lt;td style=&quot;width: 87.5px; height: 47px;&quot;&amp;gt;17.5&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;tr style=&quot;height: 47px;&quot;&amp;gt;&amp;lt;td style=&quot;width: 122.5px; height: 47px;&quot;&amp;gt;18&amp;lt;/td&amp;gt;&amp;lt;td style=&quot;width: 87.5px; height: 47px;&quot;&amp;gt;18.0&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/tbody&amp;gt;&amp;lt;/table&amp;gt;&amp;lt;p&amp;gt;Lets visualize the data using using matplot.&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;import matplotlib.pyplot as plt&lt;/code&gt;&lt;br /&gt;&lt;code&gt;import seaborn as sns&lt;/code&gt;&lt;br /&gt;&lt;code&gt;sns.set()&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;plt.figure()&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.title('Pizza price plotted against diameter')&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.xlabel('Diameter in inches')&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.ylabel('Price in dollars')&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.plot(X, y, 'k.')&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.axis([0, 25, 0, 25])&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.grid(True)&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.show()&lt;/code&gt;&amp;lt;/p&amp;gt;&lt;figure class=&quot;post__image align-center&quot;&gt;&lt;img loading=&quot;lazy&quot; src=&quot;https://gurugaurav.github.io/media/posts/3/download.png&quot; sizes=&quot;(max-width: 48em) 100vw, 768px&quot; srcset=&quot;https://gurugaurav.github.io/media/posts/3/responsive/download-xs.png 300w, https://gurugaurav.github.io/media/posts/3/responsive/download-sm.png 480w, https://gurugaurav.github.io/media/posts/3/responsive/download-md.png 768w, https://gurugaurav.github.io/media/posts/3/responsive/download-lg.png 1024w, https://gurugaurav.github.io/media/posts/3/responsive/download-xl.png 1360w, https://gurugaurav.github.io/media/posts/3/responsive/download-2xl.png 1600w&quot; alt=&quot;&quot; width=&quot;391&quot; height=&quot;279&quot; /&gt;&lt;/figure&gt;&amp;lt;p&amp;gt;We can see from the graph of the training data that there is a positive relationship&lt;br /&gt;between the diameter of a pizza and its price, which should be corroborated by our&lt;br /&gt;own pizza-eating experience. As the diameter of a pizza increases, its price generally&lt;br /&gt;increases too. The following pizza-price predictor program models this relationship&lt;br /&gt;using linear regression&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;from sklearn.linear_model import LinearRegression&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;# Create and fit the model&lt;/code&gt;&lt;br /&gt;&lt;code&gt;model = LinearRegression()&lt;/code&gt;&lt;br /&gt;&lt;code&gt;model.fit(X, y)&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;div class=&quot;cell code_cell rendered selected&quot; tabindex=&quot;2&quot;&amp;gt;&amp;lt;div class=&quot;output_wrapper&quot;&amp;gt;&amp;lt;div class=&quot;output&quot;&amp;gt;&amp;lt;div class=&quot;output_area&quot;&amp;gt;&amp;lt;div class=&quot;output_subarea output_text output_result&quot;&amp;gt;&amp;lt;pre&amp;gt;LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt; &amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;x_test = [[3],[20]]&lt;/code&gt;&lt;br /&gt;&lt;code&gt;pred = model.predict(x_test)&lt;/code&gt;&lt;br /&gt;&lt;code&gt;print('prediction:\n{}'.format(pred))&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;prediction:
+[[ 4.05818966]
+ [21.97413793]]&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;plt.figure()&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.title('Pizza price plotted against diameter')&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.xlabel('Diameter in inches')&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.ylabel('Price in dollars')&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.scatter(X, y)&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.plot(x_test, pred)&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.axis([0, 25, 0, 25])&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.grid(True)&lt;/code&gt;&lt;br /&gt;&lt;code&gt;plt.show()&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt; &amp;lt;/p&amp;gt;&lt;figure class=&quot;post__image&quot;&gt;&lt;img loading=&quot;lazy&quot; src=&quot;https://gurugaurav.github.io/media/posts/3/download-3.png&quot; sizes=&quot;(max-width: 48em) 100vw, 768px&quot; srcset=&quot;https://gurugaurav.github.io/media/posts/3/responsive/download-3-xs.png 300w, https://gurugaurav.github.io/media/posts/3/responsive/download-3-sm.png 480w, https://gurugaurav.github.io/media/posts/3/responsive/download-3-md.png 768w, https://gurugaurav.github.io/media/posts/3/responsive/download-3-lg.png 1024w, https://gurugaurav.github.io/media/posts/3/responsive/download-3-xl.png 1360w, https://gurugaurav.github.io/media/posts/3/responsive/download-3-2xl.png 1600w&quot; alt=&quot;&quot; width=&quot;391&quot; height=&quot;279&quot; /&gt;&lt;/figure&gt;&amp;lt;p&amp;gt;The fit method of LinearRegression learns the parameters of the following model&lt;br /&gt;for simple linear regression:&lt;br /&gt;                                                        y = a + bx&amp;lt;/p&amp;gt;&amp;lt;hr&amp;gt;&amp;lt;h4&amp;gt; &amp;lt;/h4&amp;gt;&amp;lt;h4&amp;gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;Ordinary Least Square&lt;/strong&gt;&lt;/span&gt;&amp;lt;/h4&amp;gt;&amp;lt;p&amp;gt;From the above equation we can see that to calulate the linear regression we need to calculate the value of two variable a and b.&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;This can be solve by calculating the &lt;strong&gt;variance &lt;/strong&gt;and &lt;strong&gt;co-variance&lt;/strong&gt; of the x and y.&amp;lt;/p&amp;gt;&lt;figure class=&quot;post__image&quot;&gt;&lt;img loading=&quot;lazy&quot; src=&quot;https://gurugaurav.github.io/media/posts/3/var.png&quot; sizes=&quot;(max-width: 48em) 100vw, 768px&quot; srcset=&quot;https://gurugaurav.github.io/media/posts/3/responsive/var-xs.png 300w, https://gurugaurav.github.io/media/posts/3/responsive/var-sm.png 480w, https://gurugaurav.github.io/media/posts/3/responsive/var-md.png 768w, https://gurugaurav.github.io/media/posts/3/responsive/var-lg.png 1024w, https://gurugaurav.github.io/media/posts/3/responsive/var-xl.png 1360w, https://gurugaurav.github.io/media/posts/3/responsive/var-2xl.png 1600w&quot; alt=&quot;&quot; width=&quot;344&quot; height=&quot;138&quot; /&gt;&lt;/figure&gt;&lt;figure class=&quot;post__image&quot;&gt;&lt;img loading=&quot;lazy&quot; src=&quot;https://gurugaurav.github.io/media/posts/3/cov-2.png&quot; sizes=&quot;(max-width: 48em) 100vw, 768px&quot; srcset=&quot;https://gurugaurav.github.io/media/posts/3/responsive/cov-2-xs.png 300w, https://gurugaurav.github.io/media/posts/3/responsive/cov-2-sm.png 480w, https://gurugaurav.github.io/media/posts/3/responsive/cov-2-md.png 768w, https://gurugaurav.github.io/media/posts/3/responsive/cov-2-lg.png 1024w, https://gurugaurav.github.io/media/posts/3/responsive/cov-2-xl.png 1360w, https://gurugaurav.github.io/media/posts/3/responsive/cov-2-2xl.png 1600w&quot; alt=&quot;&quot; width=&quot;367&quot; height=&quot;116&quot; /&gt;&lt;/figure&gt;&amp;lt;p&amp;gt;a and b can be calculated using :&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;cov(x,y) / var(x,y)&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt; &amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Using above data:&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;xbar = (6 + 8 + 10 + 14 + 18) / 5&lt;/code&gt;&lt;br /&gt;&lt;code&gt;variance = ((6 - xbar)**2 + (8 - xbar)**2 + (10 - xbar)**2 + (14 -xbar)**2 + (18 - xbar)**2) / 4&lt;/code&gt;&lt;br /&gt;&lt;code&gt;print(variance)&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;23.2&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;import numpy as np&lt;/code&gt;&lt;br /&gt;&lt;code&gt;np.var([6, 8, 10, 14, 18], ddof=1)&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;xbar = (6 + 8 + 10 + 14 + 18) / 5&lt;/code&gt;&lt;br /&gt;&lt;code&gt;ybar = (7 + 9 + 13 + 17.5 + 18) / 5&lt;/code&gt;&lt;br /&gt;&lt;code&gt;cov = ((6 - xbar) * (7 - ybar) + (8 - xbar) * (9 - ybar) + (10 -xbar) * (13 - ybar) +&lt;/code&gt;&lt;br /&gt;&lt;code&gt;       (14 - xbar) * (17.5 - ybar) + (18 - xbar) * (18 - ybar)) /4&lt;/code&gt;&lt;br /&gt;&lt;code&gt;print(cov)&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;22.65&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;beta = 22.65 /23.2&lt;/code&gt;&lt;br /&gt;&lt;code&gt;print(beta)&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;0.9762931034482758&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&lt;code&gt;alpha = ybar - beta*xbar&lt;/code&gt;&lt;br /&gt;&lt;code&gt;print(alpha)&lt;/code&gt;&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;1.9655172413793114&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&lt;/p&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><summary type="html">--- layout: post title: &quot;Some articles are just so short that we have to make the footer stick&quot; tags: ml xyz ---</summary></entry></feed>
