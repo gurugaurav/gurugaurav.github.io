@@ -1,18 +1,12 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: About Me
+permalink: "/about/"
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+My name is Guru Prasad Singh and I am a professional data scientist, working for a big US-based firm. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I have more than 5 years of experience in machine learning as well as deep learning.  I have extensively worked on Tensorflow, Pytorch, OpenCV, Scikit-learn, and different NLP  and chatbot(RASA) framework.
+I have also worked on Flask,  PySpark, Docker, Kubernetes, and GCP.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+Most of the time you will find me experimenting with the code, however, I love to play video games mostly RPG one.  Apart from this, I also like to read classical Hindi novels and poetry.

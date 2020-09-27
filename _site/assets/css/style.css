@@ -581,3 +581,7 @@ table {
 @media screen and (min-width: 800px) {
   .one-half {
     width: calc(50% - (30px / 2)); } }
+.nav-wrapper {
+  max-width: 100%;
+  padding-left: 10%;
+  padding-right: 10%; }
