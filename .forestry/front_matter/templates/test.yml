@@ -1,4 +1,22 @@
 ---
 label: test
 hide_body: true
-fields: []
+fields:
+- name: layout
+  type: text
+  config:
+    required: true
+  label: layout
+  default: post
+- name: title
+  type: text
+  config:
+    required: true
+    min: 8
+  label: title
+- name: tag
+  type: text
+  config:
+    required: true
+  label: tag
+  default: ml
