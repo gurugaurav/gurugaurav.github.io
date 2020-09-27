@@ -11,9 +11,8 @@ fields:
 - type: text
   name: categories
   label: categories
-- type: list
-  name: author
-  label: author
-- type: text
-  name: meta
-  label: meta
+- name: tags
+  type: tag_list
+  default:
+  - ml
+  label: tags
