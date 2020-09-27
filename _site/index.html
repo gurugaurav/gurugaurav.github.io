@@ -37,107 +37,97 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <div class="home"><div class="row">
-    <div class="col-sm">   
+    <div class="col-sm">
       <div class="card card_ml" data-link="ml">
-      <div class="card-img-top card-image card1"></div>
-      <div class="card-body">
-         <div class="card-text">
+        <div class="card-img-top card-image card1"></div>
+        <div class="card-body">
+          <div class="card-text">
             <h2>Machine Learning</h2>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card card_dl" data-link="dl">
+        <div class="card-img-top card-image card2"></div>
+        <div class="card-body">
+          <div class="card-text">
+            <h2>Deep Learning</h2>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="col-sm">  
-  <div class="card card_dl" data-link="dl">
-  <div class="card-img-top card-image card2"></div>
-  <div class="card-body">
-     <div class="card-text">
-        <h2>Deep Learning</h2>
-      </div>
-  </div>
-</div>
-</div>
 </div>
 
-</div>
 <script type="text/javascript">
   $(document).ready(function() {
   $("[data-link]").click(function() {
-    window.location.href = $(this).attr("data-link");
-    return false;
+  window.location.href = $(this).attr("data-link");
+  return false;
   });
-});
+  });
 
 </script>
 <style type="text/css">
-
 .card {
-  display: grid;
-  grid-template-rows: 300px 90px ;
-  grid-template-areas: "image" "text";
+display: grid;
+grid-template-rows: 300px 90px ;
+grid-template-areas: "image" "text";
+border-radius: 18px;
+background: white;
+box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+font-family: roboto;
+text-align: center;
 
-  border-radius: 18px;
-  background: white;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-  font-family: roboto;
-  text-align: center;
-  
-
-  transition: 0.5s ease;
-  cursor: pointer;
-  margin:30px;
+transition: 0.5s ease;
+cursor: pointer;
+margin:30px;
 }
 .card-image {
-  grid-area: image;
-  background: url("assets/ml.png");
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
+grid-area: image;
+background: url("assets/ml.png");
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+background-size: cover;
 }
-
 .card-text {
-  grid-area: text;
+grid-area: text;
 }
 .card-text .date {
-  color: rgb(255, 7, 110);
-  font-size:13px;
+color: rgb(255, 7, 110);
+font-size:13px;
 }
 .card-text p {
-  color: grey;
-  font-size:15px;
-  font-weight: 300;
+color: grey;
+font-size:15px;
+font-weight: 300;
 }
 .card-text h2 {
-  margin-top:0px;
-  font-size:28px;
+margin-top:0px;
+font-size:28px;
 }
-
 .card:hover {
-  transform: scale(1.15);
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+transform: scale(1.15);
+box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }
-
 /*card2*/
 .card-image.card2 {
-  background: url("assets/dl.png");
-  background-size: cover;
+background: url("assets/dl.png");
+background-size: cover;
 }
-
-
 .page-link {
-    border: 0px;
-  }
-
+border: 0px;
+}
 a {
-  color:black;
+color:black;
 }
 
+</style>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/"></data>
