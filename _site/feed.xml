@@ -1,5 +1,288 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-28T00:35:20+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guru Prasad Singh</title><subtitle>Guru prasad Singh presonal blog for Machine Learning and Deep Leraning
-</subtitle><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><entry><title type="html">Multiple Linear Regression</title><link href="http://localhost:4000/2020/09/27/multiple-linear-regression.html" rel="alternate" type="text/html" title="Multiple Linear Regression" /><published>2020-09-27T00:00:00+05:30</published><updated>2020-09-27T00:00:00+05:30</updated><id>http://localhost:4000/2020/09/27/multiple-linear-regression</id><content type="html" xml:base="http://localhost:4000/2020/09/27/multiple-linear-regression.html">&lt;p&gt;In the previous example, we have trained and evaluated a model to predict the price of a pizza. While you are eager to demonstrate the pizza-price predictor to your friends and co-workers, you are concerned by the model’s imperfect r-squared score and the embarrassment its predictions could cause you.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-28T12:05:55+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guru Prasad Singh</title><subtitle>Guru prasad Singh presonal blog for Machine Learning and Deep Leraning
+</subtitle><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><entry><title type="html">What is neural Network</title><link href="http://localhost:4000/2020/09/28/what-is-neural-network.html" rel="alternate" type="text/html" title="What is neural Network" /><published>2020-09-28T00:00:00+05:30</published><updated>2020-09-28T00:00:00+05:30</updated><id>http://localhost:4000/2020/09/28/what-is-neural-network</id><content type="html" xml:base="http://localhost:4000/2020/09/28/what-is-neural-network.html">&lt;p&gt;Artificial intelligence is a wide concept used to describe the process of mimicking human intelligence by machine. A lot of research is going on and tons of papers are being published, however, this task is very complex and still, a  lot of work is required to be done.&lt;/p&gt;
+
+&lt;p&gt;Deep Learning is a subcategory of AI where we use a neural net on the large dataset to give the machine some intelligence. a neural network works the same way a human neuron works. It is a function plus non-linearity. It takes data as input and produce some output and pass this output to a nonlinearity function. Currently, it is widely used in NLP and Image processing (Convolutional neural Network.)&lt;/p&gt;
+
+&lt;p&gt;Let’s understand how a neural network works. Consider an example that you have been given data and you have to predict whether the given instance is a bird or not. Data have the following column (we call it features).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;id&lt;/th&gt;
+      &lt;th&gt;leg&lt;/th&gt;
+      &lt;th&gt;tail&lt;/th&gt;
+      &lt;th&gt;feather&lt;/th&gt;
+      &lt;th&gt;horn&lt;/th&gt;
+      &lt;th&gt;bird&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;From the data, we can see that the horn and feature are very important features to decide whether the given row is a bird or not. In other words, we can say that the feature importance of feather and horn is very high( Feather and horn are co-related but for now we will not into that).  We can also say that some features are not that important. So an important feature will have heavyweight and less important features will have lesser weight. 
+The below picture shows how wight is assigned to feature (ranging from 0-1).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/weights.png&quot; alt=&quot;test&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center_img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we have an activation function that adds non-linearity to the model. It decides which feature will pass and which will stop during training. There are multiple activation functions like sigmoid(used in binary classification), softmax, relu, leaky-relu, tanh, etc..&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/activation.png&quot; alt=&quot;test&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center_img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This setup is called neurons and in one model there can be multiple layers of neurons. The first layer is called the input layer and the last layer is called an output layer. While training we pass data through these layers and weight parameters learned by our network.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Now the question is how this weight is learned?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While training, weight is initialized randomly (or using some initialization also like HE). While training we pass the data from the input neuron and some output is generated as the output layer. This is called a forward pass. This output is compared with the actual value and loss is calculated. Now we propagate this loss backward and calculate partial derivative (gradient ) wrt all the wight parameters so that we can minimize this loss. This is called a backward pass. We have multiple gradient-based optimizers that are used to minimize the loss by adjusting the weight values.&lt;/p&gt;
+
+&lt;p&gt;Enough talk lets code. We will use Keras to create a simple ANN on most data.&lt;/p&gt;
+
+&lt;p&gt;First import all the required packages&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Python3&quot;&gt;from keras.datasets import mnist
+import matplotlib.pyplot as plt
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.layers import Dropout
+from keras.utils import np_utils
+import numpy as np
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Load the mnist data&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(X_train, y_train), (X_test, y_test) = mnist.load_data()
+X_train[0].shape
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;(28, 28)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here we can see that images are of 28X28=784 pixels. let’s plot some images.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;plt.subplot(221)
+plt.imshow(X_train[0], cmap=plt.get_cmap('gray'))
+plt.subplot(222)
+plt.imshow(X_train[1], cmap=plt.get_cmap('gray'))
+plt.subplot(223)
+plt.imshow(X_train[2], cmap=plt.get_cmap('gray'))
+plt.subplot(224)
+plt.imshow(X_train[3], cmap=plt.get_cmap('gray'))
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/nn_op1.png&quot; alt=&quot;test&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;num_pixels = X_train.shape[1] * X_train.shape[2]
+X_train = X_train.reshape(X_train.shape[0], num_pixels).astype('float32')
+X_test = X_test.reshape(X_test.shape[0], num_pixels).astype('float32')
+X_train.shape
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;(60000, 784)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There are 60000 samples in the train set. Now we will normalize the image. It is good practice to normalize the data between 0-1. Also, there is a total of 10 classes, so we will create a one-hot encoding of the label using &lt;code class=&quot;highlighter-rouge&quot;&gt;to_categorical&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;X_train = X_train / 255
+X_test = X_test / 255
+y_train = np_utils.to_categorical(y_train)
+y_test = np_utils.to_categorical(y_test)
+num_classes = y_test.shape[1]
+y_train.shape
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;(60000, 10)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now create a model. In Keras model can be created in different ways. Here I am using the Sequential model to create the NN. On the image we should use CNN however for demo purposes, I am not using CNN. Instead, I am directly using a dense layer. Here I am using only two layers. In the Sequential model, the output of one layer is automatically passed to the input of the next layer. In our model, the output is multiclass, we are using &lt;code class=&quot;highlighter-rouge&quot;&gt;softmax&lt;/code&gt; activation in the last layer. Softmax gives the probability among all the classes. In other words, it squeezes the output in the probability range of 0-1.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num_pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input_dim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num_pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_initializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'normal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num_classes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_initializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'normal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'softmax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Compile&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'categorical_crossentropy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;optimizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'adam'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'accuracy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python3&quot;&gt;model = get_model()
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=200, verbose=2)
+scores = model.evaluate(X_test, y_test, verbose=0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Epoch 1/10
+300/300 - 3s - loss: 0.2720 - accuracy: 0.9233 - val_loss: 0.1387 - val_accuracy: 0.9570
+Epoch 2/10
+300/300 - 3s - loss: 0.1086 - accuracy: 0.9686 - val_loss: 0.0973 - val_accuracy: 0.9715
+Epoch 3/10
+300/300 - 3s - loss: 0.0704 - accuracy: 0.9795 - val_loss: 0.0800 - val_accuracy: 0.9749
+Epoch 4/10
+300/300 - 2s - loss: 0.0495 - accuracy: 0.9855 - val_loss: 0.0729 - val_accuracy: 0.9765
+Epoch 5/10
+300/300 - 3s - loss: 0.0365 - accuracy: 0.9895 - val_loss: 0.0774 - val_accuracy: 0.9760
+Epoch 6/10
+300/300 - 2s - loss: 0.0264 - accuracy: 0.9926 - val_loss: 0.0623 - val_accuracy: 0.9802
+Epoch 7/10
+300/300 - 3s - loss: 0.0190 - accuracy: 0.9952 - val_loss: 0.0623 - val_accuracy: 0.9798
+Epoch 8/10
+300/300 - 2s - loss: 0.0143 - accuracy: 0.9965 - val_loss: 0.0617 - val_accuracy: 0.9800
+Epoch 9/10
+300/300 - 3s - loss: 0.0106 - accuracy: 0.9978 - val_loss: 0.0636 - val_accuracy: 0.9811
+Epoch 10/10
+300/300 - 2s - loss: 0.0077 - accuracy: 0.9987 - val_loss: 0.0597 - val_accuracy: 0.9816
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;loss,acc = model.evaluate(X_test, y_test, verbose=0)
+print(loss,acc)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;0.05973554775118828 0.9815999865531921&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As we can see, our simple model can give an accuracy of ~98%. Nowadays, there are complex CNN models, using which you can achieve accuracy of ~99.8%.&lt;/p&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><category term="dl" /><summary type="html">Artificial intelligence is a wide concept used to describe the process of mimicking human intelligence by machine. A lot of research is going on and tons of papers are being published, however, this task is very complex and still, a lot of work is required to be done.</summary></entry><entry><title type="html">Basics of Linear Regression</title><link href="http://localhost:4000/2020/09/27/Basics-of-Linear-Regression.html" rel="alternate" type="text/html" title="Basics of Linear Regression" /><published>2020-09-27T00:00:00+05:30</published><updated>2020-09-27T00:00:00+05:30</updated><id>http://localhost:4000/2020/09/27/Basics%20of%20Linear%20Regression</id><content type="html" xml:base="http://localhost:4000/2020/09/27/Basics-of-Linear-Regression.html">&lt;p&gt;A simple linear regression model can be used to build a relation between an explanatory variable and one target variable.  it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of the line.&lt;/p&gt;
+
+&lt;p&gt;Lets consider you want to predict the price of a pizza. So while predicting the price the variable that comes into your mind is the size of pizza. For now don’t consider other features like thickness of pizza and the type of pizza etc.  Lets build a relation between size of pizza and the price of pizza using this dummy data.&lt;/p&gt;
+
+&lt;p&gt;Diameter	Price
+6	5.0
+8	10.0
+10	13.0
+14	17.5
+18	18.0&lt;/p&gt;
+
+&lt;p&gt;Lets visualize the data using using matplot.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+
+plt.figure()
+plt.title('Pizza price plotted against diameter')
+plt.xlabel('Diameter in inches')
+plt.ylabel('Price in dollars')
+plt.plot(X, y, 'k.')
+plt.axis([0, 25, 0, 25])
+plt.grid(True)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../assets/output_3_0.png&quot; alt=&quot;graph&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can see from the graph of the training data that there is a positive relationship
+between the diameter of a pizza and its price, which should be corroborated by our
+own pizza-eating experience. As the diameter of a pizza increases, its price generally
+increases too. The following pizza-price predictor program models this relationship
+using linear regression&lt;/p&gt;
+
+&lt;h1 id=&quot;create-and-fit-the-model&quot;&gt;Create and fit the model&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sklearn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linear_model&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;copy_X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fit_intercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+
+&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'prediction:\n{}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;prediction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4.05818966&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21.97413793&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Pizza price plotted against diameter'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Diameter in inches'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Price in dollars'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../assets/output_8_0.png&quot; alt=&quot;graph&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The fit method of LinearRegression learns the parameters of the following model
+for simple linear regression:
+                                                       ` y = a + bx`&lt;/p&gt;
+
+&lt;p&gt;Ordinary Least Square
+From the above equation we can see that to calulate the linear regression we need to calculate the value of two variable a and b.&lt;/p&gt;
+
+&lt;p&gt;This can be solve by calculating the variance and co-variance of the x and y.&lt;/p&gt;
+
+&lt;p&gt;a and b can be calculated using :&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a = cov(x,y) / var(x,y)&lt;/code&gt;
+now we can calucate b easily.&lt;/p&gt;
+
+&lt;p&gt;Using above data:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xbar = (6 + 8 + 10 + 14 + 18) / 5
+variance = ((6 - xbar)**2 + (8 - xbar)**2 + (10 - xbar)**2 + (14 -xbar)**2 + (18 - xbar)**2) / 4
+print(variance)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;23.2&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import numpy as np
+np.var([6, 8, 10, 14, 18], ddof=1)
+
+xbar = (6 + 8 + 10 + 14 + 18) / 5
+ybar = (7 + 9 + 13 + 17.5 + 18) / 5
+cov = ((6 - xbar) * (7 - ybar) + (8 - xbar) * (9 - ybar) + (10 -xbar) * (13 - ybar) +
+       (14 - xbar) * (17.5 - ybar) + (18 - xbar) * (18 - ybar)) /4
+print(cov)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;22.65&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;beta = 22.65 /23.2
+print(beta)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;0.9762931034482758&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alpha = ybar - beta*xbar
+print(alpha)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;1.9655172413793114&lt;/p&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><category term="ml" /><summary type="html">A simple linear regression model can be used to build a relation between an explanatory variable and one target variable. it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of the line.</summary></entry><entry><title type="html">Multiple Linear Regression</title><link href="http://localhost:4000/2020/09/27/multiple-linear-regression.html" rel="alternate" type="text/html" title="Multiple Linear Regression" /><published>2020-09-27T00:00:00+05:30</published><updated>2020-09-27T00:00:00+05:30</updated><id>http://localhost:4000/2020/09/27/multiple-linear-regression</id><content type="html" xml:base="http://localhost:4000/2020/09/27/multiple-linear-regression.html">&lt;p&gt;In the previous example, we have trained and evaluated a model to predict the price of a pizza. While you are eager to demonstrate the pizza-price predictor to your friends and co-workers, you are concerned by the model’s imperfect r-squared score and the embarrassment its predictions could cause you.&lt;/p&gt;
 
 &lt;p&gt;How can we improve the model?
 Recalling your personal pizza-eating experience, you might have some intuitions
@@ -162,109 +445,4 @@ print('&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class
   &lt;p&gt;Predicted: [ 13.3125], Target: [11]&lt;/p&gt;
 
   &lt;p&gt;R-squared: 0.77&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><category term="" /><category term="ml" /><summary type="html">In the previous example, we have trained and evaluated a model to predict the price of a pizza. While you are eager to demonstrate the pizza-price predictor to your friends and co-workers, you are concerned by the model’s imperfect r-squared score and the embarrassment its predictions could cause you.</summary></entry><entry><title type="html">Basics of Linear Regression</title><link href="http://localhost:4000/2020/09/27/Basics-of-Linear-Regression.html" rel="alternate" type="text/html" title="Basics of Linear Regression" /><published>2020-09-27T00:00:00+05:30</published><updated>2020-09-27T00:00:00+05:30</updated><id>http://localhost:4000/2020/09/27/Basics%20of%20Linear%20Regression</id><content type="html" xml:base="http://localhost:4000/2020/09/27/Basics-of-Linear-Regression.html">&lt;p&gt;A simple linear regression model can be used to build a relation between an explanatory variable and one target variable.  it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of the line.&lt;/p&gt;
-
-&lt;p&gt;Lets consider you want to predict the price of a pizza. So while predicting the price the variable that comes into your mind is the size of pizza. For now don’t consider other features like thickness of pizza and the type of pizza etc.  Lets build a relation between size of pizza and the price of pizza using this dummy data.&lt;/p&gt;
-
-&lt;p&gt;Diameter	Price
-6	5.0
-8	10.0
-10	13.0
-14	17.5
-18	18.0&lt;/p&gt;
-
-&lt;p&gt;Lets visualize the data using using matplot.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set()
-
-plt.figure()
-plt.title('Pizza price plotted against diameter')
-plt.xlabel('Diameter in inches')
-plt.ylabel('Price in dollars')
-plt.plot(X, y, 'k.')
-plt.axis([0, 25, 0, 25])
-plt.grid(True)
-plt.show()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../../assets/output_3_0.png&quot; alt=&quot;graph&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We can see from the graph of the training data that there is a positive relationship
-between the diameter of a pizza and its price, which should be corroborated by our
-own pizza-eating experience. As the diameter of a pizza increases, its price generally
-increases too. The following pizza-price predictor program models this relationship
-using linear regression&lt;/p&gt;
-
-&lt;h1 id=&quot;create-and-fit-the-model&quot;&gt;Create and fit the model&lt;/h1&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sklearn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linear_model&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;LinearRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;copy_X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fit_intercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
- 
-
-&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'prediction:\n{}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;prediction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4.05818966&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;21.97413793&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Pizza price plotted against diameter'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Diameter in inches'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Price in dollars'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../../assets/output_8_0.png&quot; alt=&quot;graph&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The fit method of LinearRegression learns the parameters of the following model
-for simple linear regression:
-                                                       ` y = a + bx`&lt;/p&gt;
-
-&lt;p&gt;Ordinary Least Square
-From the above equation we can see that to calulate the linear regression we need to calculate the value of two variable a and b.&lt;/p&gt;
-
-&lt;p&gt;This can be solve by calculating the variance and co-variance of the x and y.&lt;/p&gt;
-
-&lt;p&gt;a and b can be calculated using :&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a = cov(x,y) / var(x,y)&lt;/code&gt;
-now we can calucate b easily.&lt;/p&gt;
-
-&lt;p&gt;Using above data:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xbar = (6 + 8 + 10 + 14 + 18) / 5
-variance = ((6 - xbar)**2 + (8 - xbar)**2 + (10 - xbar)**2 + (14 -xbar)**2 + (18 - xbar)**2) / 4
-print(variance)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;23.2&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import numpy as np
-np.var([6, 8, 10, 14, 18], ddof=1)
-
-xbar = (6 + 8 + 10 + 14 + 18) / 5
-ybar = (7 + 9 + 13 + 17.5 + 18) / 5
-cov = ((6 - xbar) * (7 - ybar) + (8 - xbar) * (9 - ybar) + (10 -xbar) * (13 - ybar) +
-       (14 - xbar) * (17.5 - ybar) + (18 - xbar) * (18 - ybar)) /4
-print(cov)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;22.65&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;beta = 22.65 /23.2
-print(beta)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;0.9762931034482758&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alpha = ybar - beta*xbar
-print(alpha)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;1.9655172413793114&lt;/p&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><category term="ml" /><summary type="html">A simple linear regression model can be used to build a relation between an explanatory variable and one target variable. it tries to generate the system of line that can fit in the data with minimum loss. It tries to calculate coefficient and intercept of the line.</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><category term="" /><category term="ml" /><summary type="html">In the previous example, we have trained and evaluated a model to predict the price of a pizza. While you are eager to demonstrate the pizza-price predictor to your friends and co-workers, you are concerned by the model’s imperfect r-squared score and the embarrassment its predictions could cause you.</summary></entry></feed>
