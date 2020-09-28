@@ -16,7 +16,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-28T00:00:00+05:30" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/09/28/what-is-neural-network.html"},"author":{"@type":"Person","name":"Guru Prasad Singh"},"url":"http://localhost:4000/2020/09/28/what-is-neural-network.html","description":"Artificial intelligence is a wide concept used to describe the process of mimicking human intelligence by machine. A lot of research is going on and tons of papers are being published, however, this task is very complex and still, a lot of work is required to be done.","@type":"BlogPosting","headline":"What is neural Network","dateModified":"2020-09-28T00:00:00+05:30","datePublished":"2020-09-28T00:00:00+05:30","@context":"https://schema.org"}</script>
+{"headline":"What is neural Network","dateModified":"2020-09-28T00:00:00+05:30","datePublished":"2020-09-28T00:00:00+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/09/28/what-is-neural-network.html"},"author":{"@type":"Person","name":"Guru Prasad Singh"},"url":"http://localhost:4000/2020/09/28/what-is-neural-network.html","description":"Artificial intelligence is a wide concept used to describe the process of mimicking human intelligence by machine. A lot of research is going on and tons of papers are being published, however, this task is very complex and still, a lot of work is required to be done.","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -114,11 +114,11 @@
 <p>From the data, we can see that the horn and feature are very important features to decide whether the given row is a bird or not. In other words, we can say that the feature importance of feather and horn is very high( Feather and horn are co-related but for now we will not into that).  We can also say that some features are not that important. So an important feature will have heavyweight and less important features will have lesser weight. 
 The below picture shows how wight is assigned to feature (ranging from 0-1).</p>
 
-<p><img src="/assets/weights.png" alt="test" height="70%" width="70%" class="center_img" /></p>
+<p><img src="../../../assets/weights.png" alt="test" height="70%" width="70%" class="center_img" /></p>
 
 <p>Now we have an activation function that adds non-linearity to the model. It decides which feature will pass and which will stop during training. There are multiple activation functions like sigmoid(used in binary classification), softmax, relu, leaky-relu, tanh, etc..</p>
 
-<p><img src="/assets/activation.png" alt="test" height="70%" width="70%" class="center_img" /></p>
+<p><img src="../../../assets/activation.png" alt="test" height="70%" width="70%" class="center_img" /></p>
 
 <p>This setup is called neurons and in one model there can be multiple layers of neurons. The first layer is called the input layer and the last layer is called an output layer. While training we pass data through these layers and weight parameters learned by our network.</p>
 
@@ -158,7 +158,7 @@ plt.subplot(224)
 plt.imshow(X_train[3], cmap=plt.get_cmap('gray'))
 plt.show()
 </code></pre></div></div>
-<p><img src="/assets/nn_op1.png" alt="test" height="50%" width="50%" /></p>
+<p><img src="../../../assets/nn_op1.png" alt="test" height="50%" width="50%" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>num_pixels = X_train.shape[1] * X_train.shape[2]
 X_train = X_train.reshape(X_train.shape[0], num_pixels).astype('float32')

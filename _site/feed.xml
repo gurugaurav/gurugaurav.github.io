@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-28T12:14:57+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guru Prasad Singh</title><subtitle>My presonal blog for Machine Learning and Deep Learning
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-28T12:28:07+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guru Prasad Singh</title><subtitle>My presonal blog for Machine Learning and Deep Learning
 </subtitle><author><name>Guru Prasad Singh</name><email>g.gaurav541@gmail.com</email></author><entry><title type="html">What is neural Network</title><link href="http://localhost:4000/2020/09/28/what-is-neural-network.html" rel="alternate" type="text/html" title="What is neural Network" /><published>2020-09-28T00:00:00+05:30</published><updated>2020-09-28T00:00:00+05:30</updated><id>http://localhost:4000/2020/09/28/what-is-neural-network</id><content type="html" xml:base="http://localhost:4000/2020/09/28/what-is-neural-network.html">&lt;p&gt;Artificial intelligence is a wide concept used to describe the process of mimicking human intelligence by machine. A lot of research is going on and tons of papers are being published, however, this task is very complex and still, a  lot of work is required to be done.&lt;/p&gt;
 
 &lt;p&gt;Deep Learning is a subcategory of AI where we use a neural net on the large dataset to give the machine some intelligence. a neural network works the same way a human neuron works. It is a function plus non-linearity. It takes data as input and produce some output and pass this output to a nonlinearity function. Currently, it is widely used in NLP and Image processing (Convolutional neural Network.)&lt;/p&gt;
@@ -63,11 +63,11 @@
 &lt;p&gt;From the data, we can see that the horn and feature are very important features to decide whether the given row is a bird or not. In other words, we can say that the feature importance of feather and horn is very high( Feather and horn are co-related but for now we will not into that).  We can also say that some features are not that important. So an important feature will have heavyweight and less important features will have lesser weight. 
 The below picture shows how wight is assigned to feature (ranging from 0-1).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/weights.png&quot; alt=&quot;test&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center_img&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../../assets/weights.png&quot; alt=&quot;test&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center_img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now we have an activation function that adds non-linearity to the model. It decides which feature will pass and which will stop during training. There are multiple activation functions like sigmoid(used in binary classification), softmax, relu, leaky-relu, tanh, etc..&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/activation.png&quot; alt=&quot;test&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center_img&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../../assets/activation.png&quot; alt=&quot;test&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center_img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This setup is called neurons and in one model there can be multiple layers of neurons. The first layer is called the input layer and the last layer is called an output layer. While training we pass data through these layers and weight parameters learned by our network.&lt;/p&gt;
 
@@ -107,7 +107,7 @@ plt.subplot(224)
 plt.imshow(X_train[3], cmap=plt.get_cmap('gray'))
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/nn_op1.png&quot; alt=&quot;test&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../../assets/nn_op1.png&quot; alt=&quot;test&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;num_pixels = X_train.shape[1] * X_train.shape[2]
 X_train = X_train.reshape(X_train.shape[0], num_pixels).astype('float32')

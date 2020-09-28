@@ -22,11 +22,11 @@ Let's understand how a neural network works. Consider an example that you have b
 From the data, we can see that the horn and feature are very important features to decide whether the given row is a bird or not. In other words, we can say that the feature importance of feather and horn is very high( Feather and horn are co-related but for now we will not into that).  We can also say that some features are not that important. So an important feature will have heavyweight and less important features will have lesser weight. 
 The below picture shows how wight is assigned to feature (ranging from 0-1).
 
-   ![test](/assets/weights.png){:height="70%" width="70%" class="center_img"}
+   ![test](../../../assets/weights.png){:height="70%" width="70%" class="center_img"}
 
 Now we have an activation function that adds non-linearity to the model. It decides which feature will pass and which will stop during training. There are multiple activation functions like sigmoid(used in binary classification), softmax, relu, leaky-relu, tanh, etc..
 
- ![test](/assets/activation.png){:height="70%" width="70%" class="center_img"}
+ ![test](../../../assets/activation.png){:height="70%" width="70%" class="center_img"}
 
 This setup is called neurons and in one model there can be multiple layers of neurons. The first layer is called the input layer and the last layer is called an output layer. While training we pass data through these layers and weight parameters learned by our network. 
 
@@ -69,7 +69,7 @@ plt.subplot(224)
 plt.imshow(X_train[3], cmap=plt.get_cmap('gray'))
 plt.show()
 ```
- ![test](/assets/nn_op1.png){:height="50%" width="50%"}
+ ![test](../../../assets/nn_op1.png){:height="50%" width="50%"}
 
 ```
 num_pixels = X_train.shape[1] * X_train.shape[2]
