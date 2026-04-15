@@ -3,6 +3,7 @@ layout: post
 title: "Improving LLaMA for Document Key-Value Extraction"
 date: 2026-04-15
 categories: llm nlp
+- dl
 ---
 
 ## Problem
